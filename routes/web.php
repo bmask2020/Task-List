@@ -14,5 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    
+    return redirect()->route('tasks.index');
+
 });
+
+
+Route::get('/tasks', function(){
+
+    return view('tasks.index', ['tasks' => \App\Models\Task::all()]);
+
+})->name('tasks.index');
+
+
+Route::get('/tasks/{id}', function($id){
+
+    return view('tasks.show', ['tasks' => \App\Models\Task::findOrFail($id)]);
+
+})->name('tasks.show');
