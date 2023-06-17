@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,14 @@ Route::get('/tasks', function(){
 
 })->name('tasks.index');
 
+
+Route::view('/tasks/create', 'tasks/create')->name('tasks.create');
+
+Route::post('/tasks/store', function(Request $request){
+
+    return dd($request->all());
+
+})->name('tasks.store');
 
 Route::get('/tasks/{id}', function($id){
 
