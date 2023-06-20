@@ -22,14 +22,14 @@
 @csrf
 <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Title</label>
-    <input type="text" name="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="text" name="title" class="form-control" value="{{old('title')}}" id="exampleInputEmail1" aria-describedby="emailHelp">
    @error('title')
     <p class="error-message">{{ $message }}</p>
    @enderror
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Description</label>
-    <textarea name="description" class="form-control"></textarea>
+    <textarea name="description" class="form-control">{{old('description')}}</textarea>
     @error('description')
     <p class="error-message">{{ $message }}</p>
     @enderror
@@ -37,7 +37,7 @@
 
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Long Description</label>
-    <textarea name="long_description" class="form-control"></textarea>
+    <textarea name="long_description" class="form-control">{{old('long_description')}}</textarea>
     @error('long_description')
     <p class="error-message">{{ $message }}</p>
     @enderror
