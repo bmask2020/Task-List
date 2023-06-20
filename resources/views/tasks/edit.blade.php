@@ -18,7 +18,7 @@
 @endsection
 
 @section('content')
-<form action="{{route('tasks.update', ['id' => $tasks->id])}}" method="post">
+<form action="{{route('tasks.update', ['task' => $tasks->id])}}" method="post">
 @csrf
 @method('PUT')
 <div class="mb-3">

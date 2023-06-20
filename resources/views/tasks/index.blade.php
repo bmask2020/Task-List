@@ -5,7 +5,7 @@
 @section('content')
 
     @foreach($tasks as $val)
-    <p><a href="{{route('tasks.show', ['id' => $val->id])}}">{{$val->title}}</a></p>
+    <p><a href="{{route('tasks.show', ['task' => $val->id])}}">{{$val->title}}</a></p>
 
     @endforeach
     <br><br>
