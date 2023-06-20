@@ -15,6 +15,12 @@
        @endif
 
        <p>Created at: {{$tasks->created_at}}</p>
+
+       <form action="{{ route('task.destroy', ['task' => $tasks->id]) }}" method="POST">
+        @csrf 
+        @method('DELETE')
+        <button type="submit">Delete</button>
+       </form>
     </div>
     
 @endsection
