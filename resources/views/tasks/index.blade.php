@@ -1,35 +1,23 @@
 @extends('layout.master')
-
-@section('styles')
-
-    <style>
-        nav svg , .shadow-sm {
-
-            display:none
-        }
-    </style>
-
-@endsection
-
 @section('title', 'Task List')
 
 @section('content')
 
-    <div>
-        <a href="{{ route('tasks.create') }}">Add Task !</a>
-    </div>
-    <br>
+    <nav class="mb-4">
+        <a href="{{ route('tasks.create') }}" class="font-medium text-gray-700 underline decoration-pink-500">Add Task !</a>
+    </nav>
+  
     @forelse($tasks as $val)
-    <p><a href="{{route('tasks.show', ['task' => $val->id])}}">{{$val->title}}</a></p>
+    <p><a href="{{route('tasks.show', ['task' => $val->id])}}" @class(['font-bold','line-through' => $val->completed])>{{$val->title}}</a></p>
 
     @empty
     <div>There is No Task Yet</div>
     @endforelse
-    <br>
+  
     @if($tasks->count())
-        <nav>
+        <nav class="mt-4">
         {{ $tasks->links() }}
         </nav>
     @endif
-    <br><br>
+  
 @endsection
